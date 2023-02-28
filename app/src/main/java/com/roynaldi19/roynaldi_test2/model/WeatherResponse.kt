@@ -2,7 +2,7 @@ package com.roynaldi19.roynaldi_test2.model
 
 import com.google.gson.annotations.SerializedName
 
-data class JakartaResponse(
+data class WeatherResponse(
 
 	@field:SerializedName("city")
 	val city: City,
@@ -26,13 +26,19 @@ data class Rain(
 	val jsonMember3h: Any
 )
 
-data class Coord(
+data class WeatherItem(
 
-	@field:SerializedName("lon")
-	val lon: Any,
+	@field:SerializedName("icon")
+	val icon: String,
 
-	@field:SerializedName("lat")
-	val lat: Any
+	@field:SerializedName("description")
+	val description: String,
+
+	@field:SerializedName("main")
+	val main: String,
+
+	@field:SerializedName("id")
+	val id: Int
 )
 
 data class Main(
@@ -65,18 +71,6 @@ data class Main(
 	val tempMax: Any
 )
 
-data class Sys(
-
-	@field:SerializedName("pod")
-	val pod: String
-)
-
-data class Clouds(
-
-	@field:SerializedName("all")
-	val all: Int
-)
-
 data class Wind(
 
 	@field:SerializedName("deg")
@@ -87,33 +81,6 @@ data class Wind(
 
 	@field:SerializedName("gust")
 	val gust: Any
-)
-
-data class City(
-
-	@field:SerializedName("country")
-	val country: String,
-
-	@field:SerializedName("coord")
-	val coord: Coord,
-
-	@field:SerializedName("sunrise")
-	val sunrise: Int,
-
-	@field:SerializedName("timezone")
-	val timezone: Int,
-
-	@field:SerializedName("sunset")
-	val sunset: Int,
-
-	@field:SerializedName("name")
-	val name: String,
-
-	@field:SerializedName("id")
-	val id: Int,
-
-	@field:SerializedName("population")
-	val population: Int
 )
 
 data class ListItem(
@@ -149,17 +116,50 @@ data class ListItem(
 	val wind: Wind
 )
 
-data class WeatherItem(
+data class Sys(
 
-	@field:SerializedName("icon")
-	val icon: String,
+	@field:SerializedName("pod")
+	val pod: String
+)
 
-	@field:SerializedName("description")
-	val description: String,
+data class City(
 
-	@field:SerializedName("main")
-	val main: String,
+	@field:SerializedName("country")
+	val country: String,
+
+	@field:SerializedName("coord")
+	val coord: Coord,
+
+	@field:SerializedName("sunrise")
+	val sunrise: Int,
+
+	@field:SerializedName("timezone")
+	val timezone: Int,
+
+	@field:SerializedName("sunset")
+	val sunset: Int,
+
+	@field:SerializedName("name")
+	val name: String,
 
 	@field:SerializedName("id")
-	val id: Int
+	val id: Int,
+
+	@field:SerializedName("population")
+	val population: Int
+)
+
+data class Clouds(
+
+	@field:SerializedName("all")
+	val all: Int
+)
+
+data class Coord(
+
+	@field:SerializedName("lon")
+	val lon: Any,
+
+	@field:SerializedName("lat")
+	val lat: Any
 )
